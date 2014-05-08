@@ -1,0 +1,203 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: US-ASCII
+      string: card=tok_3zwGRovkirMVzY&email=bobjones%40example.com&description=Bob%20Jones
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.8.8
+      Authorization:
+      - Bearer 47XpYygswZjfqiwNtrcijNhxiUkK8JeF
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.8.8","lang":"ruby","lang_version":"2.0.0 p353 (2013-11-22)","platform":"x86_64-darwin13.0.0","publisher":"stripe","uname":"Darwin
+        peewee.local 13.1.0 Darwin Kernel Version 13.1.0: Thu Jan 16 19:40:37 PST
+        2014; root:xnu-2422.90.20~2/RELEASE_X86_64 x86_64"}'
+      Content-Length:
+      - '76'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 08 May 2014 18:37:07 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '1286'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - no-cache, no-store
+      Access-Control-Max-Age:
+      - '300'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "customer",
+          "created": 1399574226,
+          "id": "cus_3zwGvWnmWm5HQI",
+          "livemode": false,
+          "description": "Bob Jones",
+          "email": "bobjones@example.com",
+          "metadata": {},
+          "subscriptions": {
+            "object": "list",
+            "total_count": 0,
+            "has_more": false,
+            "url": "/v1/customers/cus_3zwGvWnmWm5HQI/subscriptions",
+            "data": [],
+            "count": 0
+          },
+          "account_balance": 0,
+          "currency": null,
+          "cards": {
+            "object": "list",
+            "total_count": 1,
+            "has_more": false,
+            "url": "/v1/customers/cus_3zwGvWnmWm5HQI/cards",
+            "data": [
+              {
+                "id": "card_3zwGCQG8dQkvRx",
+                "object": "card",
+                "last4": "4242",
+                "type": "Visa",
+                "exp_month": 4,
+                "exp_year": 2015,
+                "fingerprint": "RP70ogxdjSUA62Ql",
+                "customer": "cus_3zwGvWnmWm5HQI",
+                "country": "US",
+                "name": "Bob Jones",
+                "address_city": null
+              }
+            ],
+            "count": 1
+          },
+          "default_card": "card_3zwGCQG8dQkvRx",
+          "active_card": {
+            "id": "card_3zwGCQG8dQkvRx",
+            "object": "card",
+            "last4": "4242",
+            "type": "Visa",
+            "exp_month": 4,
+            "exp_year": 2015,
+            "fingerprint": "RP70ogxdjSUA62Ql",
+            "customer": "cus_3zwGvWnmWm5HQI",
+            "country": "US",
+            "name": "Bob Jones",
+            "address_city": null
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 08 May 2014 18:37:07 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/charges
+    body:
+      encoding: US-ASCII
+      string: amount=20000&currency=usd&description=My%20Awesome%20Class&customer=cus_3zwGvWnmWm5HQI
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.8.8
+      Authorization:
+      - Bearer 47XpYygswZjfqiwNtrcijNhxiUkK8JeF
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.8.8","lang":"ruby","lang_version":"2.0.0 p353 (2013-11-22)","platform":"x86_64-darwin13.0.0","publisher":"stripe","uname":"Darwin
+        peewee.local 13.1.0 Darwin Kernel Version 13.1.0: Thu Jan 16 19:40:37 PST
+        2014; root:xnu-2422.90.20~2/RELEASE_X86_64 x86_64"}'
+      Content-Length:
+      - '86'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 08 May 2014 18:37:07 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '960'
+      Access-Control-Max-Age:
+      - '300'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Cache-Control:
+      - no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "ch_3zwGw1J9cEaPYK",
+          "object": "charge",
+          "created": 1399574227,
+          "livemode": false,
+          "paid": true,
+          "amount": 20000,
+          "currency": "usd",
+          "refunded": false,
+          "card": {
+            "id": "card_3zwGCQG8dQkvRx",
+            "object": "card",
+            "last4": "4242",
+            "type": "Visa",
+            "exp_month": 4,
+            "exp_year": 2015,
+            "fingerprint": "RP70ogxdjSUA62Ql",
+            "customer": "cus_3zwGvWnmWm5HQI",
+            "country": "US",
+            "name": "Bob Jones",
+            "address_city": null
+          },
+          "captured": true,
+          "balance_transaction": "txn_3zwGgnn2zMOpPX",
+          "failure_code": null,
+          "customer": "cus_3zwGvWnmWm5HQI",
+          "description": "My Awesome Class",
+          "dispute": null,
+          "metadata": {},
+          "statement_description": null,
+          "fee": 610,
+          "fee_details": [
+            {
+              "amount": 610,
+              "currency": "usd",
+              "type": "stripe_fee",
+              "description": "Stripe processing fees",
+              "application": null,
+              "amount_refunded": 0
+            }
+          ],
+          "disputed": false
+        }
+    http_version: 
+  recorded_at: Thu, 08 May 2014 18:37:08 GMT
+recorded_with: VCR 2.4.0

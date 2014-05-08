@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Purchasing an online course", js: true do
+feature "Purchasing an online course", js: true, vcr: true do
   # increase the capybara wait time to account for stripe
   before do
     @origional_wait_time = Capybara.default_wait_time
