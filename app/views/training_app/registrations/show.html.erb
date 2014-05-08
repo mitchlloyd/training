@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 9] <html class="crappy-browser" lang="en"> -->
+<!--[if gt IE 8]><!-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#">
+  <!--<![endif]-->
+<head>
+  <title>Your Receipt</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <meta content="Gaslight LLC" name="author"/>
+  <%= favicon_link_tag "32x32icon.png" %>
+  <%= stylesheet_link_tag 'print', media: 'print' %>
+  <%= javascript_include_tag "modernizr" %>
+</head>
+<body class="<%= controller.controller_name %> <%= controller.action_name %>">
+  <div class="row">
+    <div class="columns large-6">
+      <h1>Purchase Receipt</h1>
+    </div>
+    <div class="columns large-6 right">
+      <h4 class="purchased-on">
+        <%= l(registration.created_at.to_date, format: :long) %>
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-6">
+      <h3 class="payment-info">Purchased By</h3>
+      <%= raw [registration.name, registration.organization, registration.email, registration.phone].compact.join('<br />') %>
+    </div>
+    <div class="columns large-6 right">
+      <%= image_tag('largeLogo.png') %>
+      <p>
+        11126 Kenwood Rd, Suite C
+        <br/>
+        Cincinnati, Ohio 45242
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-12">
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Amount</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= course.name %>
+            </td>
+            <td>
+              <%= number_to_currency(registration.amount) %>
+            </td>
+            <td>1</td>
+            <td>
+              <%= number_to_currency(registration.amount) %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-4 right">
+      <h3 class="payment-info">Payment Information</h3>
+      <p>
+        <strong>Card Info:</strong>
+        <%= registration.card_type %>
+        <%= "*#{registration.last4}" %>
+      </p>
+      <p>
+        <strong>Expiration Date:</strong>
+        <% if registration.expires_on.present? %>
+          <%= registration.expires_on.strftime('%m/%Y') %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-12 notes">
+      <h3>Notes</h3>
+      <p>
+        Thank you for your purchase!
+      </p>
+      <p>
+        If you have any questions or concerns, email us at 
+        <strong>training@gaslight.co</strong>
+        and we'll be in touch. Happy learning!
+      </p>
+    </div>
+  </div>
+</body>
+</html>
