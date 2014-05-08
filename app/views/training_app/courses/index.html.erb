@@ -1,0 +1,17 @@
+<h1>Training Classes</h1>
+<% if upcoming_courses.any? %>
+  <h2>Active Workshops</h2>
+  <hr>
+  <% upcoming_courses.each do |course| %>
+    <%= render partial: 'course_tile', locals: { course: course } %>
+  <% end %>
+<% end %>
+
+<% if previous_courses.any? %>
+  <h2>Previous Workshops</h2>
+  <hr>
+  <% previous_courses.in_groups_of(2, false).each do |courses| %>
+    <%= render partial: 'course_tile', collection: courses, as: :course %>
+  <% end %>
+<% end %>
+
