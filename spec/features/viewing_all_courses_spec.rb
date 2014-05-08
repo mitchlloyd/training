@@ -4,14 +4,15 @@ feature "Viewing all courses" do
   let(:course_index_page) { CourseIndexPage.new }
 
   describe "in the appropriate sections" do
-    let!(:in_person_course) { FactoryGirl.create(:in_person_course, title: "In Person") }
+    let!(:in_person_parent_course) { FactoryGirl.create(:in_person_course, title: "In Person") }
+    let!(:in_person_course) { FactoryGirl.create(:in_person_course, parent_course: in_person_parent_course, title: "In Person in a City") }
     let!(:online_course) { FactoryGirl.create(:online_course, title: "Online") }
     scenario do
       course_index_page.visit_page
       expect(course_index_page.online_course_titles).to include("Online")
       expect(course_index_page.online_course_titles).to_not include("In Person")
 
-      expect(course_index_page.in_person_course_titles).to include("In Person")
+      expect(course_index_page.in_person_course_titles).to include("In Person in a City")
       expect(course_index_page.in_person_course_titles).to_not include("Online")
     end
   end

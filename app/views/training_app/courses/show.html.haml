@@ -34,7 +34,7 @@
             = course.venue_city
             %span= number_to_currency(course.current_price, precision: 0)
           %h5.purchase-panel__date= course.date_range
-          %h5= course.venue.name
+          %h5= course.venue_name
           %a.purchase-panel__buy.button.button--brand1{href: course.registration_link} Register Now
       - if course.in_person?
         .request
