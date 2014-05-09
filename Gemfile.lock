@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    training_app (0.0.1)
+    gaslight_training (0.0.1)
       active_model_serializers
       compass-rails (= 1.1.0.pre)
       decent_exposure
@@ -235,6 +235,7 @@ DEPENDENCIES
   database_cleaner (= 1.0.1)
   dotenv-rails
   factory_girl_rails
+  gaslight_training!
   jasminerice!
   pg
   poltergeist
@@ -242,6 +243,5 @@ DEPENDENCIES
   rspec-rails
   selenium-webdriver
   shoulda-matchers (~> 2.4.0)
-  training_app!
   vcr
   webmock

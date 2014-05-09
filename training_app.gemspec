@@ -5,13 +5,13 @@ require "training_app/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "training_app"
+  s.name        = "gaslight_training"
   s.version     = TrainingApp::VERSION
-  s.authors     = ["Gaslight"]
+  s.authors     = ["Gaslight LLC"]
   s.email       = ["hello@gaslight.co"]
   s.homepage    = "http://gaslight.co"
   s.summary     = "The Gaslight training app!"
-  s.description = "Rails engine powering Gaslight training"
+  s.description = "Rails engine powering Gaslight training."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
