@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212202421) do
+ActiveRecord::Schema.define(version: 20140509203561) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,10 @@ ActiveRecord::Schema.define(version: 20131212202421) do
     t.integer  "course_id"
     t.string   "referral_token"
     t.string   "code"
+    t.string   "last4"
+    t.string   "card_type"
+    t.date     "expires_on"
+    t.integer  "discount_code_id"
   end
 
   create_table "training_app_sections", force: true do |t|
@@ -107,6 +111,8 @@ ActiveRecord::Schema.define(version: 20131212202421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
+    t.float    "latitude"
+    t.string   "longitude"
   end
 
 end
