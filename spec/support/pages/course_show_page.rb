@@ -22,11 +22,11 @@ class CourseShowPage
   end
 
   def buy_now_link
-    page.find(".purchase-panel__buy")["href"]
+    page.find_link('Buy Now')[:href]
   end
 
   def price
-    page.find(".purchase-panel__price").text
+    page.find(".course__price").text
   end
 
   def description_html

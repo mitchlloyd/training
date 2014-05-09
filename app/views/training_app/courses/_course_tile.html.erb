@@ -1,0 +1,21 @@
+<div class="course <%= course_class(course) %>">
+  <%= link_to(course) do %>
+    <%= image_tag(course.image_url, class: 'course__img') %>
+  <% end %>
+
+  <h2 class="course__title"><%= course.title %></h2>
+  <p class="course__description"><%= course.meta %></p>
+  <div class="course__actions">
+    <% if course.online? %>
+      <%= link_to('Try Now', classroom_index_path(anchor: "/courses/#{course.id}")) %>
+      <%= link_to('Buy Now', classroom_index_path(anchor: "/courses/#{course.id}/register")) %>
+    <% elsif course.active? %>
+      <%= link_to('Learn more about the class.', course) %>
+      <%= link_to('Save your spot.', course.registration_link) %>
+    <% end %>
+  </div>
+  <div class="course__type">
+    <p><%= course.online? ? 'Online' : 'In Person' %></p>
+  </div>
+</div>
+

@@ -20,8 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'eco'
   s.add_dependency 'stripe'
   s.add_dependency 'decent_exposure'
-  s.add_dependency 'haml', '~> 4.0'
-  s.add_dependency 'haml-rails'
   s.add_dependency 'sass-rails', '~> 4.0.0'
   s.add_dependency 'compass-rails', '1.1.0.pre'
   s.add_dependency 'font-awesome-rails'
