@@ -1,5 +1,3 @@
-require "haml"
-require "haml-rails"
 require "decent_exposure"
 require "eco"
 require "stripe"
