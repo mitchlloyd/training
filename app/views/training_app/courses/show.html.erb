@@ -1,5 +1,5 @@
 <h1><%= course.title %></h1>
-<%= markdown(course.description_main) %>
+<div class="course__description"><%= markdown(course.description_main) %></div>
 
 <hr/>
 
@@ -13,12 +13,12 @@
 <% end %>
 
 <% if course.online? %>
-  <h3><%= number_to_currency(course.current_price, precision: 0) %></h3>
+  <h3 class="course__price"><%= number_to_currency(course.current_price, precision: 0) %></h3>
   <%= link_to('Try Now', classroom_index_path(anchor: "/courses/#{course.id}")) %>
   <%= link_to('Buy Now', classroom_index_path(anchor: "/courses/#{course.id}/register")) %>
 <% else %>
   <h3><%= course.venue_city %></h3>
-  <span><%= number_to_currency(course.current_price, precision: 0) %></span>
+  <span class="course__price"><%= number_to_currency(course.current_price, precision: 0) %></span>
   <h5><%= course.date_range %></h5>
   <h5><%= course.venue_name %></h5>
   <%= link_to('Register Now', course.registration_link) %>
