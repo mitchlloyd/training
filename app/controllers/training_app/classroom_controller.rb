@@ -10,6 +10,11 @@ module TrainingApp
     def registration
       @registration ||= Registration.find_by_code(params[:code])
     end
+
+    def course_id
+      (registration && registration.course) ? registration.course.id : Course.first.id
+    end
+    helper_method :course_id
   end
 end
 
