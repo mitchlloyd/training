@@ -25,7 +25,7 @@ module TrainingApp
   course_attrs = JSON.parse(course_json)
   course = Course.where(title: course_attrs['title']).first_or_create!(course_attrs)
 
-  section_attrs = JSON.parse('{"id":10,"title":"Introduction","course_id":4,"sort_order":null}')
+  section_attrs = JSON.parse('{"id":10,"title":"Introduction","sort_order":null}')
   section = course.sections.where(title: section_attrs['title']).first_or_create!(section_attrs)
 
   chapter_json = '{
