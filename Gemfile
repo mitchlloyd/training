@@ -7,6 +7,7 @@ gemspec
 
 group :development, :test do
   gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem "byebug"
 end
 
 # Declare any dependencies that are still in development here instead of in
