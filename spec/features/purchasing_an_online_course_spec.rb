@@ -36,18 +36,4 @@ feature "Purchasing an online course", js: true, vcr: true do
       expect(last_registration.discount_code).to_not be_nil
     end
   end
-
-  describe "with a discount code" do
-    let!(:discount_code) { FactoryGirl.create(:discount_code, code: "testies", price: 100) }
-
-    scenario do
-      registration_page.visit_page(course)
-      expect(registration_page.regular_price).to eq(200)
-      registration_page.apply_discount("testies")
-      expect(registration_page.discounted_price).to eq(100)
-      registration_page.submit_form()
-      expect(registration_page).to be_successful
-      expect(last_registration.amount).to eq(100)
-    end
-  end
 end
