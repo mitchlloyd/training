@@ -15,9 +15,10 @@ feature "Purchasing an online course", js: true, vcr: true do
   describe "without a discount code" do
     scenario do
       registration_page.visit_page(course)
-      registration_page.submit_form()
-      expect(registration_page.regular_price).to eq(200)
-      expect(registration_page).to be_successful
+      eventually { expect(registration_page.regular_price).to eq(200) }
+
+      registration_page.submit_form
+      eventually { expect(registration_page).to be_successful }
       expect(last_registration.amount).to eq(200)
     end
   end
