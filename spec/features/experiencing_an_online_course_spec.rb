@@ -30,7 +30,9 @@ feature "Experiencing an online course", js: true do
 
       scenario "should not be visible" do
         classroom_page.visit_course(course, registration.code)
-        expect(classroom_page.chapters).to eq(["Test Chapter"])
+        eventually do
+          expect(classroom_page.chapter_titles).to eq(["Test Chapter"])
+        end
       end
     end
 
@@ -41,7 +43,9 @@ feature "Experiencing an online course", js: true do
       let!(:chapter) { FactoryGirl.create(:chapter, title: "Test Chapter", section: section1) }
       scenario "should be ordered by the order property" do
         classroom_page.visit_course(course, registration.code)
-        expect(classroom_page.sections).to eq(["One", "Two", "Three"])
+        eventually do
+          expect(classroom_page.sections).to eq(["One", "Two", "Three"])
+        end
       end
     end
 
@@ -54,7 +58,9 @@ feature "Experiencing an online course", js: true do
 
       scenario "should be ordered by the order property" do
         classroom_page.visit_course(course, registration.code)
-        expect(classroom_page.chapter_titles(3)).to eq(["One", "Two", "Three"])
+        eventually do
+          expect(classroom_page.chapter_titles).to eq(["One", "Two", "Three"])
+        end
       end
     end
   end
@@ -77,7 +83,10 @@ feature "Experiencing an online course", js: true do
     scenario "converts markdown to html" do
       classroom_page.visit_course(course)
       classroom_page.visit_chapter(chapter)
-      expect(classroom_page.chapter_description).to eq("Test Description")
+
+      eventually do
+        expect(classroom_page.chapter_description).to eq("Test Description")
+      end
     end
   end
 end

@@ -6,3 +6,7 @@ end
 
 Capybara.javascript_driver = ENV.fetch("JS_DRIVER", "selenium").to_sym
 
+RSpec.configure do |config|
+  config.include AsyncHelpers
+end
+

@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature "Demoing a course", js: true do
   let(:classroom_page) { ClassroomPage.new }
+  let(:chapter_navigation) { ChapterNavigation.new }
   let(:course) { FactoryGirl.create(:course, online: true) }
   let(:section) { FactoryGirl.create(:section, course: course) }
 
@@ -11,7 +12,9 @@ feature "Demoing a course", js: true do
 
     scenario "should be disabled" do
       classroom_page.visit_course(course)
-      expect(classroom_page.disabled_chapters).to include(restricted_chapter.title)
+      eventually do
+        expect(classroom_page.disabled_chapters).to include(restricted_chapter.title)
+      end
       expect(classroom_page.disabled_chapters).to_not include(demo_chapter.title)
     end
   end
@@ -26,10 +29,10 @@ feature "Demoing a course", js: true do
     end
 
     context "restricted chapter" do
-      let(:restricted_chapter) { FactoryGirl.create(:chapter, section: section, title: "Restricted", demo: false, code_url: "http://example.com/") }
+      let!(:restricted_chapter) { FactoryGirl.create(:chapter, section: section, title: "Restricted", demo: false, code_url: "http://example.com/") }
       scenario "should show the purchase modal" do
-        classroom_page.visit_course(restricted_chapter.course) #visit the course first to prevent routing error
-        classroom_page.visit_chapter(restricted_chapter)
+        classroom_page.visit_course(restricted_chapter.course)
+        chapter_navigation.navigate_to_chapter(restricted_chapter)
         expect(classroom_page).to be_showing_purchase_modal
       end
     end

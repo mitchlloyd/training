@@ -3,7 +3,6 @@ class RegistrationPage
 
   def visit_page(course, code=nil)
     visit "/training/classroom/?code=#{code}#/courses/#{course.id}/register"
-    find('.ember-application') # wait for ember to initialize
   end
 
   def submit_form(options = {})

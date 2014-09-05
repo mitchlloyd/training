@@ -3,14 +3,10 @@ class ClassroomPage
 
   def visit_course(course, code=nil)
     visit "/training/classroom/?code=#{code}#/courses/#{course.id}"
-    # TODO: This needs to go
-    find('.ember-application') # wait for ember to initialize
   end
 
   def visit_chapter(chapter, code=nil)
     visit "/training/classroom/?code=#{code}#/courses/#{chapter.course.id}/chapters/#{chapter.id}"
-    # TODO: This needs to go
-    find('.ember-application') # wait for ember to initialize
   end
 
   def title
@@ -21,14 +17,7 @@ class ClassroomPage
     find('.theme-link', visible: false)[:href]
   end
 
-  def chapter_titles(count)
-    has_css?('.subnav__item', count: count)
-    all('.subnav__item', false).collect(&:text)
-  end
-
-  # TODO: Make private - This shouldn't be in the public API b/c it encourages people to write
-  # flaky tests.
-  def chapters
+  def chapter_titles
     all('.subnav__item', false).collect(&:text)
   end
 
