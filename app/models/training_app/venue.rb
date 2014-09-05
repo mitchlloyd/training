@@ -5,7 +5,7 @@ module TrainingApp
 
     geocoded_by :address
     after_validation :geocode
-    
+
     before_validation :normalize_address
     validates :address, uniqueness: true, presence: true
 
