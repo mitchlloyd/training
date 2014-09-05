@@ -1,3 +1,6 @@
+computedOr = Ember.computed.or
+computedEqual = Ember.computed.equal
+
 Training.CourseRegisterController = Ember.ObjectController.extend
   needs: ['flash']
   purchasePending: false
@@ -9,7 +12,10 @@ Training.CourseRegisterController = Ember.ObjectController.extend
     submit: ->
       @set('cardErrors', null)
       @set('purchasePending', true)
-      @createStripeToken()
+      if @get('isFree')
+        @save()
+      else
+        @submitWithCreditCard()
 
   currentPrice: (->
     if @get('discountedPrice')? then @get('discountedPrice') else @get('course.price')
@@ -31,7 +37,11 @@ Training.CourseRegisterController = Ember.ObjectController.extend
     Ember.run.throttle(this, 'fetchDiscount', 300)
   ).observes('discountCode')
 
-  createStripeToken: ->
+  creditCardFormDisabled: computedOr('purchasePending', 'isFree')
+
+  isFree: computedEqual('discountedPrice', 0)
+
+  submitWithCreditCard: ->
     Stripe.createToken @get('cardProperties'), (status, response) =>
       if (status == 200)
         @handleStripeSuccess(response)
@@ -40,11 +50,14 @@ Training.CourseRegisterController = Ember.ObjectController.extend
 
   handleStripeSuccess: (response) ->
     @set('stripe_token', response.id)
-    @get('model').save().then(@handleRegistrationSuccess.bind(this), @handleRegistrationError.bind(this))
+    @save()
 
   handleStripeError: (response) ->
     @set('cardErrors', response.error.message)
     @set('purchasePending', false)
+
+  save: ->
+    @get('model').save().then(@handleRegistrationSuccess.bind(this), @handleRegistrationError.bind(this))
 
   handleRegistrationSuccess: (registration) ->
     registration.get('course').reload().then =>

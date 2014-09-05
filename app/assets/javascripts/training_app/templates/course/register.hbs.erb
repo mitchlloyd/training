@@ -35,29 +35,29 @@
           <div class="row">
             <div class="large-12 columns">
               <label for="cc-name">Name on Card</label>
-              {{input value=card.name disabled=purchasePending id="cc-name"}}
+              {{input value=card.name disabled=creditCardFormDisabled id="cc-name"}}
             </div>
           </div>
 
           <div class="row">
             <div class="large-8 columns">
               <label for="cc-number">Card Number</label>
-              {{input value=card.number disabled=purchasePending id="cc-number"}}
+              {{input value=card.number disabled=creditCardFormDisabled id="cc-number"}}
             </div>
             <div class="large-4 columns">
               <label for="cc-cvc">CVC</label>
-              {{input value=card.cvc disabled=purchasePending id="cc-cvc"}}
+              {{input value=card.cvc disabled=creditCardFormDisabled id="cc-cvc"}}
             </div>
           </div>
 
           <div class="row">
             <div class="large-4 columns">
               <label for="cc-month">Expiration Month (MM)</label>
-              {{input value=card.expMonth disabled=purchasePending id="cc-month"}}
+              {{input value=card.expMonth disabled=creditCardFormDisabled id="cc-month"}}
             </div>
             <div class="large-4 columns">
               <label for="cc-year">Expiration Year (YYYY)</label>
-              {{input value=card.expYear disabled=purchasePending id="cc-year"}}
+              {{input value=card.expYear disabled=creditCardFormDisabled id="cc-year"}}
             </div>
             <div class="large-4 columns"></div>
           </div>

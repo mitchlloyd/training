@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: US-ASCII
+      string: email=bobjones%40example.com&description=Bob%20Jones
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.8.8
+      Authorization:
+      - Bearer 47XpYygswZjfqiwNtrcijNhxiUkK8JeF
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.8.8","lang":"ruby","lang_version":"2.0.0 p353 (2013-11-22)","platform":"x86_64-darwin13.3.0","publisher":"stripe","uname":"Darwin
+        milly.local 13.3.0 Darwin Kernel Version 13.3.0: Tue Jun  3 21:27:35 PDT 2014;
+        root:xnu-2422.110.17~1/RELEASE_X86_64 x86_64"}'
+      Content-Length:
+      - '52'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 05 Sep 2014 19:19:38 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '608'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Stripe-Version:
+      - '2011-11-17'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "customer",
+          "created": 1409944778,
+          "id": "cus_4iu3uTKoGjzWAs",
+          "livemode": false,
+          "description": "Bob Jones",
+          "email": "bobjones@example.com",
+          "metadata": {},
+          "subscriptions": {
+            "object": "list",
+            "total_count": 0,
+            "has_more": false,
+            "url": "/v1/customers/cus_4iu3uTKoGjzWAs/subscriptions",
+            "data": [],
+            "count": 0
+          },
+          "account_balance": 0,
+          "currency": null,
+          "cards": {
+            "object": "list",
+            "total_count": 0,
+            "has_more": false,
+            "url": "/v1/customers/cus_4iu3uTKoGjzWAs/cards",
+            "data": [],
+            "count": 0
+          },
+          "default_card": null
+        }
+    http_version: 
+  recorded_at: Fri, 05 Sep 2014 19:19:38 GMT
+recorded_with: VCR 2.4.0
