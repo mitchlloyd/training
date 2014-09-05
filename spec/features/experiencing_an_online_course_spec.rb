@@ -46,12 +46,15 @@ feature "Experiencing an online course", js: true do
     end
 
     describe "chapter ordering" do
-      let!(:chapter3) { FactoryGirl.create(:chapter, title: "Three", sort_order: nil, section: section) }
-      let!(:chapter2) { FactoryGirl.create(:chapter, title: "Two", sort_order: 2, section: section) }
-      let!(:chapter1) { FactoryGirl.create(:chapter, title: "One", sort_order: 1, section: section) }
+      before do
+        FactoryGirl.create(:chapter, title: "Three", sort_order: nil, section: section)
+        FactoryGirl.create(:chapter, title: "Two", sort_order: 2, section: section)
+        FactoryGirl.create(:chapter, title: "One", sort_order: 1, section: section)
+      end
+
       scenario "should be ordered by the order property" do
         classroom_page.visit_course(course, registration.code)
-        expect(classroom_page.chapters).to eq(["One", "Two", "Three"])
+        expect(classroom_page.chapter_titles(3)).to eq(["One", "Two", "Three"])
       end
     end
   end
