@@ -5,7 +5,6 @@
 ### Tests
 
 ```sh
-cd engines/training_app
 rspec
 ```
 
@@ -22,6 +21,8 @@ visit: localhost:3000/training/jasmine
 ```sh
 cd engines/training_app/spec/dummy
 rails s
+
+client
 ```
 
 This project rocks and uses MIT-LICENSE.

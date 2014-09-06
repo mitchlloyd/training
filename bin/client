@@ -1,0 +1,2 @@
+cd ./client
+ember serve --output-path ../spec/dummy/public/training/classroom/
