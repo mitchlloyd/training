@@ -1,4 +1,5 @@
 import Ember from 'ember';
+var $ = Ember.$;
 
 export default Ember.Controller.extend({
   needs: ['flash'],

@@ -1,3 +1,4 @@
+/* globals Stripe */
 import Ember from 'ember';
 var computedOr = Ember.computed.or,
     computedEqual = Ember.computed.equal;
@@ -106,7 +107,7 @@ export default Ember.ObjectController.extend({
     return this.set('discountPending', false);
   },
 
-  handleDiscountError: function(response) {
+  handleDiscountError: function() {
     return this.set('discountPending', false);
   }
 });

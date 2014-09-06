@@ -1,9 +1,10 @@
+/* globals Showdown */
 import Ember from 'ember';
 var markdownConverter = new Showdown.converter();
 
-export default Ember.Handlebars.makeBoundHelper('markdown', function(text, options) {
+export default Ember.Handlebars.makeBoundHelper('markdown', function(text) {
   if (text == null) {
     return;
   }
-  return new Handlebars.SafeString(markdownConverter.makeHtml(text));
+  return new Ember.Handlebars.SafeString(markdownConverter.makeHtml(text));
 });
