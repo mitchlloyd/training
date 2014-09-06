@@ -1,7 +1,7 @@
 /* globals moment */
 import Ember from 'ember';
 
-export default Ember.Handlebars.makeBoundHelper('time', function(seconds) {
+export default Ember.Handlebars.makeBoundHelper(function(seconds) {
   var formatter, parsedTime;
 
   if (seconds == null) {
