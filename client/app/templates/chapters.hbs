@@ -1,6 +1,6 @@
 <nav {{bind-attr class=":sidebar isSidebarActive:sidebar--active"}}>
   <ol class="nav">
-    {{#each sections itemController=navSection}}
+    {{#each sections itemController="navSection"}}
       <li {{bind-attr class=":nav__item isActive:nav__item--active"}}>
         <div class="nav__heading">
           <span class="nav__heading__index">{{position}}.</span>
@@ -8,7 +8,7 @@
           <span class="nav__heading__count">{{currentChapterPosition}}/{{chapters.length}}</span>
         </div>
         <ul class="subnav">
-          {{#each chapters itemController=navChapter}}
+          {{#each chapters itemController="navChapter"}}
             <li {{bind-attr class=":subnav__item isActive:subnav__item--active isRestricted:subnav__item--disabled"}}>
               {{#link-to 'chapter' this class="subnav__link"}}
                 <span class="left">{{title}}</span>
