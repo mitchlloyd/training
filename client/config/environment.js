@@ -29,6 +29,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     ENV.baseURL = '/'; // Testem prefers this...
+    ENV.locationType = 'auto'; // test.index paths fail without this.
   }
 
   if (environment === 'production') {
