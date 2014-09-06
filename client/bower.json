@@ -12,7 +12,11 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
-
-    "showdown": "coreyti/showdown#0.3.1"
+    "showdown": "coreyti/showdown#0.3.1",
+    "foundation": "zurb/bower-foundation#~5.4.3",
+    "font-awesome": "FortAwesome/Font-Awesome#~4.2.0"
+  },
+  "resolutions": {
+    "jquery": "^1.11.1"
   }
 }
