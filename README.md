@@ -16,12 +16,10 @@ rails s
 ```
 visit: localhost:3000/training/jasmine
 
-### Server
+### Run the app locally
 
 ```sh
-cd engines/training_app/spec/dummy
-rails s
-
+server
 client
 ```
 
