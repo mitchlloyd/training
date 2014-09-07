@@ -43,7 +43,7 @@ export default Ember.ObjectController.extend({
   }).property('discountCode'),
 
   discountCodeDidChange: (function() {
-    return Ember.run.throttle(this, 'fetchDiscount', 300);
+    return Ember.run.debounce(this, 'fetchDiscount', 300);
   }).observes('discountCode'),
 
   creditCardFormDisabled: computedOr('purchasePending', 'isFree'),
