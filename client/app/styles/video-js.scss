@@ -9,6 +9,13 @@
 //  *skin name to your video tag instead of the default skin.
 //  *e.g. <video class="video-js my-skin-name">
 
+// Mitch customizations:
+
+.vjs-live-display {
+  display: none;
+}
+
+
 .vjs-default-skin {
   color: #cccccc;
   .vjs-slider {

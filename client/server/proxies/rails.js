@@ -5,7 +5,7 @@ var path = require('path');
 // https://github.com/nodejitsu/node-http-proxy
 var proxy = Proxy.createProxyServer({});
 
-var proxyPath = '/training/api';
+var proxyPath = '/training';
 
 module.exports = function(app) {
 
