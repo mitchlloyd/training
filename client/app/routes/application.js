@@ -5,7 +5,7 @@ export default Ember.Route.extend({
   session: service(),
 
   model: function() {
-    this.get('session').setup(document.URL);
+    return this.get('session').setup(document.URL);
   },
 
   actions: {

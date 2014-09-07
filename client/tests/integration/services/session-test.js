@@ -10,8 +10,8 @@ test('it performs a get request with the registration code', function() {
   var session = resolver.resolve('service:session').create();
 
   var server = new Pretender(function(){
-    this.post('/training/api/sessions', function(request){
-      equal(request.requestBody, "registration_code=123");
+    this.get('/training/api/sessions', function(request){
+      ok(request.url.match(/\?registration_code=123/));
       return [200, {"Content-Type": "application/json"}, "{}"];
     });
   });

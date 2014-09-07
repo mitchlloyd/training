@@ -6,8 +6,16 @@ export default Ember.Service.extend({
     var matches = url.match(/\?code=(\d+)/);
 
     if (matches && matches.length === 2) {
-      var code = matches[1];
-      $.post('/training/api/sessions', {registration_code: code});
+      return $.get(
+        '/training/api/sessions',
+        {registration_code: matches[1]}
+      ).then(this.csrfRequestDidReturn);
     }
+  },
+
+  csrfRequestDidReturn: function(response) {
+    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+      return jqXHR.setRequestHeader('X-CSRF-Token', response.authenticity_token);
+    });
   }
 });

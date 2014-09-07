@@ -9,7 +9,7 @@ TrainingApp::Engine.routes.draw do
   end
 
   namespace :api, defaults: {format: :json} do
-    resources :sessions, only: :create
+    resources :sessions, only: :index
     resources :courses
     resources :discount_codes, only: :show
     resources :registrations do
