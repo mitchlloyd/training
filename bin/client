@@ -1,2 +1,7 @@
-cd ./client
-ember serve --output-path ../spec/dummy/public/training/classroom/
+#!/usr/bin/env ruby
+
+if ARGV[0].nil?
+  exec 'cd client && ember serve'
+elsif ARGV[0] == 'test'
+  exec 'cd client && ember test'
+end
