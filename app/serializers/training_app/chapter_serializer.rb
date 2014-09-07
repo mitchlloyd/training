@@ -12,12 +12,12 @@ module TrainingApp
 
     def video_url
       return nil if object.video_url.blank?
-      "//#{ENV.fetch('CLOUDFRONT_CDN_DOMAIN', 'assets.gaslight.co')}#{object.video_url}"
+      "//#{ENV.fetch('CLOUDFRONT_CDN_DOMAIN', '')}#{object.video_url}"
     end
 
     def poster_url
       return nil if object.video_url.blank?
-      "//#{ENV.fetch('CLOUDFRONT_CDN_DOMAIN', 'assets.gaslight.co')}#{object.poster_url}"
+      "//#{ENV.fetch('CLOUDFRONT_CDN_DOMAIN', '')}#{object.poster_url}"
     end
   end
 end
