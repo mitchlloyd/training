@@ -18,11 +18,11 @@ class ClassroomPage
   end
 
   def chapter_titles
-    all('.subnav__item', false).collect(&:text)
+    all('.subnav__item .left', false).collect(&:text)
   end
 
   def disabled_chapters
-    all(".subnav__item--disabled", visible: false).collect(&:text)
+    all(".subnav__item--disabled .left", visible: false).collect(&:text)
   end
 
   def sections
