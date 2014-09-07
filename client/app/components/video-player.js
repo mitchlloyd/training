@@ -63,10 +63,6 @@ export default Ember.Component.extend({
     }
     this.player.currentTime(0);
     this.player.pause();
-    return Ember.run.next((function(_this) {
-      return function() {
-        return _this.updateSrc();
-      };
-    })(this));
+    Em.run.scheduleOnce('afterRender', this, this.updateSrc);
   }).observes('src')
 });

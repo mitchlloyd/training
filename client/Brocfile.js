@@ -19,6 +19,7 @@ var app = new EmberApp();
 
 app.import('bower_components/showdown/src/showdown.js');
 app.import('bower_components/moment/moment.js');
+app.import('bower_components/videojs/dist/video-js/video.js');
 app.import('bower_components/font-awesome/css/font-awesome.css');
 
 [
