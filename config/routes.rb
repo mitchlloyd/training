@@ -1,5 +1,5 @@
 TrainingApp::Engine.routes.draw do
-  resources :classroom, only: [:index]
+  resources :classroom, only: :index
 
   resources :registrations, only: :show
 
