@@ -3,7 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     environment: environment,
-    baseURL: '/',
+    baseURL: '/training/classroom/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {

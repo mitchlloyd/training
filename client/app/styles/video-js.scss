@@ -270,9 +270,9 @@
 // *The control icons are from a custom font. Each icon corresponds to a character
 // *(e.g. "\e001"). Font icons allow for easy scaling and coloring of icons.
 @font-face {
-  font-family: "VideoJS";
-  src: font-url("training_app/vjs.eot");
-  src: font-url("training_app/vjs.eot?#iefix") format("embedded-opentype"), font-url("training_app/vjs.woff") format("woff"), font-url("training_app/vjs.ttf") format("truetype");
+  font-family: 'VideoJS';
+  src: url('assets/fonts/vjs.eot');
+  src: url('assets/fonts/vjs.eot?#iefix') format('embedded-opentype'), url('fonts/vjs.woff') format('woff'), url('fonts/vjs.ttf') format('truetype'), url('fonts/vjs.svg#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
