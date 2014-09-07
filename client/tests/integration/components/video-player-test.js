@@ -5,7 +5,7 @@ var run = Ember.run.bind;
 var player;
 moduleForComponent("video-player", null, {
   setup: function() {
-    player = this.subject()
+    player = this.subject();
     player.set('src', "/test/test.mp4");
     this.render();
   }
@@ -16,7 +16,7 @@ test('rendering the first time', function() {
 });
 
 test('changing the src', function() {
-  Em.run(function() {
+  Ember.run(function() {
     player.set('src', "/test/test2.mp4");
   });
 
