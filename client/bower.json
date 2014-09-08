@@ -16,7 +16,8 @@
     "foundation": "zurb/bower-foundation#~5.4.3",
     "font-awesome": "FortAwesome/Font-Awesome#~4.2.0",
     "moment": "~2.8.3",
-    "videojs": "~4.8.1"
+    "videojs": "~4.8.1",
+    "spinjs": "~2.0.1"
   },
   "resolutions": {
     "ember": "canary",

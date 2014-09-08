@@ -81,7 +81,7 @@
             </div>
             <div class="large-4 columns">
               {{#if discountPending}}
-                {{cr-image class="spinner" path="spinner.gif" alt="Spinner"}}
+                {{cr-spinner class="spinner--discount"}}
               {{/if}}
             </div>
             <div class="large-4 columns">
@@ -97,11 +97,11 @@
             {{#link-to 'course' course class="button-quiet"}}Cancel Purchase{{/link-to}}
           </div>
           <div class="large-4 columns">
-            {{#if purchasePending}}
-              {{cr-image class="spinner right" path="spinner.gif" alt="Spinner"}}
-            {{/if}}
           </div>
           <div class="large-4 columns">
+            {{#if purchasePending}}
+              {{cr-spinner class="spinner--register"}}
+            {{/if}}
             <button {{bind-attr disabled=purchasePending}} type="submit" class="button button--full-width">Register</button>
           </div>
         </div>
