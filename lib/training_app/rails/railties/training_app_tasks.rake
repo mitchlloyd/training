@@ -85,9 +85,8 @@ namespace :assets do
   task :precompile_client_assets do
     client_dir = File.expand_path("../../../../client", File.dirname(__FILE__))
     rails_dir = Rails.root.to_s
-    sh "cd #{client_dir} && npm install"
-    sh "cd #{client_dir} && bundle install"
-    sh "cd #{client_dir} && ember build --environment production --output-path #{rails_dir}/public/training/classroom/"
+    ember_path = "./node_modules/ember-cli/bin/ember"
+    sh "cd #{client_dir} && #{ember_path} build --environment production --output-path #{rails_dir}/public/training/classroom/"
   end
 end
 
