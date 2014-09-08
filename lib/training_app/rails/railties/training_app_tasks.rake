@@ -81,3 +81,14 @@ namespace :training do
   end
 end
 
+namespace :assets do
+  task :precompile_client_assets do
+    client_dir = File.expand_path("../../../../client", File.dirname(__FILE__))
+    rails_dir = Rails.root.to_s
+    sh "cd #{client_dir} && ember build --environment production --output-path #{rails_dir}/public/training/classroom/"
+  end
+end
+
+Rake::Task["assets:precompile"].enhance do
+  Rake::Task["assets:precompile_client_assets"].invoke
+end
