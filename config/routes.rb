@@ -1,5 +1,5 @@
 TrainingApp::Engine.routes.draw do
-  resources :classroom, only: [:index]
+  resources :classroom, only: :index
 
   resources :registrations, only: :show
 
@@ -9,6 +9,7 @@ TrainingApp::Engine.routes.draw do
   end
 
   namespace :api, defaults: {format: :json} do
+    resources :sessions, only: :index
     resources :courses
     resources :discount_codes, only: :show
     resources :registrations do

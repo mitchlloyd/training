@@ -1,0 +1,34 @@
+<nav {{bind-attr class=":sidebar isSidebarActive:sidebar--active"}}>
+  <ol class="nav">
+    {{#each sections itemController="navSection"}}
+      <li {{bind-attr class=":nav__item isActive:nav__item--active"}}>
+        <div class="nav__heading">
+          <span class="nav__heading__index">{{position}}.</span>
+          <span class="nav__heading__title">{{title}}</span>
+          <span class="nav__heading__count">{{currentChapterPosition}}/{{chapters.length}}</span>
+        </div>
+        <ul class="subnav">
+          {{#each chapters itemController="navChapter"}}
+            <li {{bind-attr class=":subnav__item isActive:subnav__item--active isRestricted:subnav__item--disabled"}}>
+              {{#link-to 'chapter' this class="subnav__link"}}
+                <span class="left">{{title}}</span>
+                <span class="right">{{format-time duration}}</span>
+              {{/link-to}}
+
+              {{#if videoUrl}}
+                <a class="subnav__icon" {{bind-attr href=videoUrl}}><i class="fa fa-cloud-download"></i></a>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/each}}
+  </ol>
+</nav>
+
+<section {{bind-attr class=":main isSidebarActive:main--pushed"}}>
+  <i {{action 'toggleSidebar'}} {{bind-attr class=":main__sidebar-toggler :fa isSidebarActive:fa-chevron-left:fa-chevron-right"}}></i>
+  <div class="main__content">
+    {{outlet}}
+  </div>
+</section>

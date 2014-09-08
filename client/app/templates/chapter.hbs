@@ -1,0 +1,29 @@
+<div class="chapter__description">
+  {{format-markdown description}}
+</div>
+
+{{#if videoUrl}}
+  {{#video-player src=videoUrl poster=posterUrl class="chapter__video"}}
+    <a class="video-player__download" {{bind-attr href=videoUrl}}><i class="right fa fa-cloud-download"></i></a>
+
+    <div class="pagers">
+      {{#if previousChapter}}
+        {{#link-to 'chapter' previousChapter class="pager pager--previous"}}
+          <i class="fa fa-angle-left pager__icon"></i>
+          <span class="pager__text">{{previousChapter.title}}</span>
+        {{/link-to}}
+      {{/if}}
+
+      {{#if nextChapter}}
+        {{#link-to 'chapter' nextChapter class="pager pager--next"}}
+          <span class="pager__text">{{nextChapter.title}}</span>
+          <i class="fa fa-angle-right pager__icon"></i>
+        {{/link-to}}
+      {{/if}}
+    </div>
+  {{/video-player}}
+{{/if}}
+
+{{#if codeUrl}}
+  <iframe class="chapter__code" {{bind-attr src=codeUrl}}></iframe>
+{{/if}}

@@ -1,0 +1,18 @@
+{
+  "name": "ember-cli-pretender",
+  "dependencies": {
+    "pretender": "~0.1.0"
+  },
+  "homepage": "https://github.com/rwjblue/ember-cli-pretender",
+  "version": "0.2.3",
+  "_release": "0.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.3",
+    "commit": "016fd1934c7f0ae2b2a15973759bec8e764da84a"
+  },
+  "_source": "git://github.com/rwjblue/ember-cli-pretender.git",
+  "_target": "~0.2.3",
+  "_originalSource": "rwjblue/ember-cli-pretender",
+  "_direct": true
+}

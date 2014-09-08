@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+if ARGV[0].nil?
+  exec 'cd client && ember serve'
+elsif ARGV[0] == 'test'
+  exec 'cd client && ember test'
+end
