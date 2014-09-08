@@ -7,6 +7,7 @@ module('session service');
 
 test('it performs a get request with the registration code', function() {
   expect(1);
+  window.Stripe = {setPublishableKey: Ember.K};
   var session = resolver.resolve('service:session').create();
 
   var server = new Pretender(function(){
