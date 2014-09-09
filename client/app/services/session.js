@@ -3,7 +3,7 @@ import Ember from 'ember';
 var $ = Ember.$;
 
 function registrationDataFromUrl(url) {
-  var matches = url.match(/\?code=(\d+)/);
+  var matches = url.match(/\?code=([a-z0-9]+)/);
 
   if (matches && matches.length === 2) {
     return {registration_code: matches[1]};
