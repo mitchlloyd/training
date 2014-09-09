@@ -5,6 +5,12 @@ export default Ember.Route.extend({
   session: service(),
 
   redirect: function() {
-    this.transitionTo('course', this.get('session.courseId'));
+    var courseId = this.get('session.courseId');
+
+    if (courseId) {
+      this.transitionTo('course', courseId);
+    } else {
+      window.location = "/training";
+    }
   }
 });
