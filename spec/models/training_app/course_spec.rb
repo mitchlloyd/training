@@ -184,4 +184,17 @@ module TrainingApp
       end
     end
   end
+
+  describe ".find_by_registration_code" do
+    let(:registration) { FactoryGirl.create(:registration, code: 'abc123') }
+    let!(:course) { FactoryGirl.create(:course, registrations: [registration]) }
+
+    it "finds the course with the correct code" do
+      expect(Course.find_by_registration_code('abc123')).to eq(course)
+    end
+
+    it "returns nil if it can't find a registration" do
+      expect(Course.find_by_registration_code('invalidcode')).to be_nil
+    end
+  end
 end

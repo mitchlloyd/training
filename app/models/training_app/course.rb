@@ -67,6 +67,12 @@ module TrainingApp
       where(id: id.split('-').first).first
     end
 
+    def self.find_by_registration_code(code)
+      if (registration = Registration.find_by(code: code))
+        registration.course
+      end
+    end
+
     def self.upcoming
       where('start_date >= ?', Date.today)
     end

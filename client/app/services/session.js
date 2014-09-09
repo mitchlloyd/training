@@ -27,11 +27,12 @@ export default Ember.Service.extend({
     return $.get(
       '/training/api/sessions',
       registrationDataFromUrl(url)
-    ).then(this.requestDidReturn);
+    ).then(this.requestDidReturn.bind(this));
   },
 
   requestDidReturn: function(response) {
     setupCsrfHeaders(response.authenticity_token);
     initializeStripe(response.stripe_public_key);
+    this.set('courseId', response.course_id);
   }
 });
