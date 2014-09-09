@@ -90,7 +90,7 @@ export default Ember.ObjectController.extend({
     if (response.responseJSON != null) {
       return this.set('registrationErrors', response.responseJSON.error_message);
     } else {
-      return this.set('registrationErrors', "Oops! Something went wrong. Please send an email to training@gaslight.co and we'll get you setup.");
+      return this.set('registrationErrors', "Oops! Something went wrong. Please send an email to training@teamgaslight.com and we'll get you setup.");
     }
   },
 

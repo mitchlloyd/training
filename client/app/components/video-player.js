@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     controls: true,
     preload: "auto",
     flash: {
-      swf: "http://assets1.gaslight.co/javascripts/video-js.swf"
+      swf: "http://assets1.teamgaslight.com/javascripts/video-js.swf"
     }
   },
 

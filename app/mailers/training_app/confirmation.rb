@@ -1,6 +1,6 @@
 module TrainingApp
   class Confirmation < ActionMailer::Base
-    default from: "Gaslight <training@gaslight.co>"
+    default from: "Gaslight <training@teamgaslight.com>"
 
     def registered(registration)
       @registration = registration
