@@ -7,10 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
-
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/classroom.css">
+    <link rel="stylesheet" href="/training/classroom/assets/vendor.css">
+    <link rel="stylesheet" href="/training/classroom/assets/classroom.css">
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   </head>
   <body>
@@ -18,8 +16,8 @@
       window.ClassroomENV = {{ENV}};
       window.EmberENV = window.ClassroomENV.EmberENV;
     </script>
-    <script src="assets/vendor.js"></script>
-    <script src="assets/classroom.js"></script>
+    <script src="/training/classroom/assets/vendor.js"></script>
+    <script src="/training/classroom/assets/classroom.js"></script>
     <script>
       window.Classroom = require('classroom/app')['default'].create(ClassroomENV.APP);
     </script>
