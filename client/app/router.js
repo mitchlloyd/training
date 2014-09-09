@@ -11,6 +11,7 @@ Router.map(function() {
       this.resource("chapter", {path: ":chapter_id"});
     });
   });
+  this.route("notFound", { path: "*path"});
 });
 
 export default Router;
