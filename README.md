@@ -1,6 +1,6 @@
 # TrainingApp
 
-![](https://www.codeship.io/projects/37a27480-b949-0131-2051-6e04503967cb/status)
+[ ![Codeship Status for mitchlloyd/training](https://www.codeship.io/projects/f1196a40-1aaa-0132-7edc-6605d664157f/status)](https://www.codeship.io/projects/34740)
 
 ### Tests
 
