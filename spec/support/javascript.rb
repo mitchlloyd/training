@@ -1,3 +1,4 @@
+require 'support/async_helpers'
 require 'capybara/poltergeist'
 
 Capybara.register_driver :poltergeist do |app|
