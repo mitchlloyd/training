@@ -1,51 +1,52 @@
 /* globals videojs */
 import Ember from 'ember';
+var run = Ember.run.bind;
+
+var PLAYER_OPTIONS = {
+  width: false,
+  height: false,
+  controls: true,
+  preload: "auto",
+  flash: {
+    swf: "http://assets1.gaslight.co/javascripts/video-js.swf"
+  }
+};
 
 export default Ember.Component.extend({
   classNames: ['video-player'],
   classNameBindings: ['isPlaying:video-player--playing:video-player--paused'],
   isPlaying: false,
-  playerOptions: {
-    width: false,
-    height: false,
-    controls: true,
-    preload: "auto",
-    flash: {
-      swf: "http://assets1.gaslight.co/javascripts/video-js.swf"
-    }
-  },
 
   didInsertElement: function() {
-    this.player = videojs('player', this.playerOptions);
-    this.player.on("play", (function(_this) {
-      return function() {
-        return _this.set("isPlaying", true);
-      };
-    })(this));
-    this.player.on("pause", (function(_this) {
-      return function() {
-        return _this.set("isPlaying", false);
-      };
-    })(this));
-    this.player.on("ended", (function(_this) {
-      return function() {
-        return _this.set("isPlaying", false);
-      };
-    })(this));
+    this.player = videojs('player', PLAYER_OPTIONS);
+    this.player.on("play", run(this, this.didPlay));
+    this.player.on("pause", run(this, this.didPause));
+    this.player.on("ended", run(this, this.didEnd));
+
     if (this.player.techName === "Flash") {
-      return this.setupFlashPlayer();
+      this.setupFlashPlayer(this.$().width());
     }
   },
 
-  setupFlashPlayer: function() {
-    var width;
-    width = this.$().width();
+  setupFlashPlayer: function(width) {
     this.player.width(width);
-    return this.player.height(width * (9 / 16));
+    this.player.height(width * (9 / 16));
+  },
+
+  didPlay: function() {
+    this.set('isPlaying', true);
+  },
+
+  didPause: function() {
+    this.set("isPlaying", false);
+  },
+
+  didEnd: function() {
+    this.set("isPlaying", false);
   },
 
   willDestroyElement: function() {
-    return this.player.dispose();
+    this.player.dispose();
   },
 
   updateSrc: function() {
@@ -53,12 +54,12 @@ export default Ember.Component.extend({
       this.player.src(this.get('src'));
     }
     if (this.get('poster') != null) {
-      return this.player.poster(this.get('poster'));
+      this.player.poster(this.get('poster'));
     }
   },
 
   srcDidChange: (function() {
-    if (this.player == null) {
+    if (!this.player) {
       return;
     }
     this.player.currentTime(0);
