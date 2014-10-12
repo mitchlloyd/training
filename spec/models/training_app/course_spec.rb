@@ -197,4 +197,12 @@ module TrainingApp
       expect(Course.find_by_registration_code('invalidcode')).to be_nil
     end
   end
+
+  describe "#to_param" do
+    let!(:course) { create(:course, title: "Working with: State @ember") }
+
+    it "returns the id followed by a slug" do
+      expect(course.to_param).to eq "#{course.id}-working-with-state-ember"
+    end
+  end
 end

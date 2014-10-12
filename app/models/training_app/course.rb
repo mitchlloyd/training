@@ -14,6 +14,10 @@ module TrainingApp
     delegate :price, :title, :description_main, :synopsis, to: :parent_course, prefix: true, allow_nil: true
     delegate :name, :city, :address, to: :venue, prefix: true, allow_nil: true
 
+    def to_param
+      "#{id}-#{title.parameterize}"
+    end
+
     def price
       price = read_attribute(:price)
       price.present? ? price : parent_course_price
