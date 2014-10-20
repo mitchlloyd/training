@@ -7,7 +7,9 @@ module TrainingApp
 
     def attributes
       attrs = super
-      attrs[:demo] = true if registration.blank?
+      if CoursePolicy.new(registration, object).restricted_to_demo?
+        attrs[:demo] = true
+      end
       attrs
     end
   end

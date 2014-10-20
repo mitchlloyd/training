@@ -4,7 +4,7 @@ module TrainingApp
 
     def attributes
       attrs = super
-      if registration.nil? && !object.demo?
+      unless ChapterPolicy.new(registration, object).view_content?
         [:code_url, :video_url, :poster_url, :description].each { |attr| attrs[attr] = nil}
       end
       attrs

@@ -19,6 +19,16 @@ feature "Experiencing an online course", js: true do
         expect(classroom_page).to be_showing_demo
       end
     end
+
+    context "with a code from another course" do
+      let(:other_course) { create(:course, title: "Other Course") }
+      let!(:other_registration) { create(:registration, course: other_course, code: "othercode") }
+
+      scenario "is in demo mode" do
+        classroom_page.visit_course(course, "othercode")
+        expect(classroom_page).to be_showing_demo
+      end
+    end
   end
 
   describe "sidebar navigation" do
