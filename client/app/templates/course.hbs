@@ -22,11 +22,11 @@
 
     {{#if showBlurb}}
       <div class="info-bar__notice bar__notice--demo">
-        <p>
-          Welcome to the {{title}} demo!<br/>
-          If you like what you see, enroll in the full course!
-        </p>
-        {{#link-to 'course.register' this class="button button--primary"}}Enroll now!{{/link-to}}
+        You're demoing this course. If you like what you see,
+
+        {{#link-to 'course.register' this}}
+          enroll in the full course!
+        {{/link-to}}
       </div>
     {{/if}}
 
