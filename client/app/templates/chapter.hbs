@@ -1,7 +1,3 @@
-<div class="chapter__description">
-  {{format-markdown description}}
-</div>
-
 {{#if videoUrl}}
   {{#video-player src=videoUrl poster=posterUrl class="chapter__video"}}
     <a class="video-player__download" {{bind-attr href=videoUrl}}><i class="right fa fa-cloud-download"></i></a>
@@ -23,6 +19,10 @@
     </div>
   {{/video-player}}
 {{/if}}
+
+<div class="chapter__description">
+  {{format-markdown description}}
+</div>
 
 {{#if codeUrl}}
   <iframe class="chapter__code" {{bind-attr src=codeUrl}}></iframe>
