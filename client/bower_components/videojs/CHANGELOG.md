@@ -6,6 +6,18 @@ _(none)_
 
 --------------------
 
+## 4.8.5 (2014-09-25)
+* Updated to the latest version of the swf to fix HLS playback ([view](https://github.com/videojs/video.js/pull/1538))
+
+## 4.8.4 (2014-09-23)
+* @gkatsev fixed isFullscreen reporting on iOS devices ([view](https://github.com/videojs/video.js/pull/1511))
+
+## 4.8.3 (2014-09-22)
+* @heff updated to the latest version of the SWF to 4.4.4 ([view](https://github.com/videojs/video.js/pull/1526))
+
+## 4.8.2 (2014-09-16)
+* @gkatsev fixed an IE11 bug where pause was not fired when the video ends ([view](https://github.com/videojs/video.js/pull/1512))
+
 ## 4.8.1 (2014-09-05)
 * @dmlap fixed an issue where an error could be fired after player disposal ([view](https://github.com/videojs/video.js/pull/1481))
 * @dmlap fixed poster error handling ([view](https://github.com/videojs/video.js/pull/1482))

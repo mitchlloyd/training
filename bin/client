@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 if ARGV[0].nil?
-  exec 'cd client && ember serve'
+  exec 'cd client && ember serve --live-reload=false'
 elsif ARGV[0] == 'test'
   exec 'cd client && ember test'
 end

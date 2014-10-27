@@ -3793,6 +3793,8 @@ vjs.Player.prototype.onEnded = function(){
   if (this.options_['loop']) {
     this.currentTime(0);
     this.play();
+  } else if (!this.paused()) {
+    this.pause();
   }
 };
 
@@ -6396,6 +6398,20 @@ vjs.Html5.prototype.supportsFullScreen = function(){
 
 vjs.Html5.prototype.enterFullScreen = function(){
   var video = this.el_;
+
+  if ('webkitDisplayingFullscreen' in video) {
+    this.one('webkitbeginfullscreen', vjs.bind(this, function(e) {
+      this.player_.isFullscreen(true);
+
+      this.one('webkitendfullscreen', vjs.bind(this, function(e) {
+        this.player_.isFullscreen(false);
+        this.player_.trigger('fullscreenchange');
+      }));
+
+      this.player_.trigger('fullscreenchange');
+    }));
+  }
+
   if (video.paused && video.networkState <= video.HAVE_METADATA) {
     // attempt to prime the video element for programmatic access
     // this isn't necessary on the desktop but shouldn't hurt

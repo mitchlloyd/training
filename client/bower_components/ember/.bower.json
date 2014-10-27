@@ -5,16 +5,17 @@
   ],
   "dependencies": {
     "jquery": ">= 1.7.0 <= 2.1.0",
-    "handlebars": ">= 1.0.0 < 2.0.0"
+    "handlebars": ">= 2.0.0 < 3.0.0"
   },
   "homepage": "https://github.com/components/ember",
-  "_release": "aa071f1805",
+  "_release": "720e881908",
   "_resolution": {
     "type": "branch",
     "branch": "canary",
-    "commit": "aa071f1805acf95191d660bbaeed083ab13d5baa"
+    "commit": "720e8819082ad75dec8a9aabbeda520a2e2c3933"
   },
   "_source": "git://github.com/components/ember.git",
   "_target": "canary",
-  "_originalSource": "components/ember"
+  "_originalSource": "ember",
+  "_direct": true
 }
