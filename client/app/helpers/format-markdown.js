@@ -1,10 +1,13 @@
 /* globals Showdown */
 import Ember from 'ember';
-var markdownConverter = new Showdown.converter();
+var makeHtml = new Showdown.converter().makeHtml;
 
-export default Ember.Handlebars.makeBoundHelper(function(text) {
+export function formatMarkdown(text) {
   if (text == null) {
     return;
   }
-  return new Ember.Handlebars.SafeString(markdownConverter.makeHtml(text));
-});
+
+  return makeHtml(text).htmlSafe();
+}
+
+export default Ember.Handlebars.makeBoundHelper(formatMarkdown);

@@ -12,24 +12,19 @@ function setupPretender(arrayOfStubs) {
   });
 }
 
+var fakeServer;
 function setupApiStubs(stubs, app) {
-  var fakeServer;
-
   if (stubs) {
     fakeServer = setupPretender(stubs);
   } else {
     fakeServer = {shutdown: Ember.K};
   }
-
-  app.addObserver('isDestroying', function() {
-    fakeServer.shutdown();
-  });
 }
 import Application from '../../app';
 import Router from '../../router';
 import config from '../../config/environment';
 
-export default function startApp(attrs) {
+export function startApp(attrs) {
   var App;
 
   var attributes = Ember.merge({}, config.APP);
@@ -53,4 +48,9 @@ export default function startApp(attrs) {
   setupApiStubs(attrs.apiStubs, App);
 
   return App;
+}
+
+export function stopApp(App) {
+  Ember.run(App, App.destroy);
+  fakeServer.shutdown();
 }

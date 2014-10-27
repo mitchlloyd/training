@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import startApp from '../helpers/start-app';
+import { startApp, stopApp } from '../helpers/start-app';
 import validSession from '../api-stubs/valid-session';
 
 var App;
@@ -9,7 +9,7 @@ module('handling unknown routes', {
     App = startApp({apiStubs: [validSession]});
   },
   teardown: function() {
-    Ember.run(App, App.destroy);
+    stopApp(App);
   }
 });
 

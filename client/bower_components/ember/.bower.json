@@ -8,14 +8,13 @@
     "handlebars": ">= 2.0.0 < 3.0.0"
   },
   "homepage": "https://github.com/components/ember",
-  "_release": "720e881908",
+  "_release": "f3c7129c73",
   "_resolution": {
     "type": "branch",
     "branch": "canary",
-    "commit": "720e8819082ad75dec8a9aabbeda520a2e2c3933"
+    "commit": "f3c7129c730873980556a20a655d6832b4f3eb78"
   },
   "_source": "git://github.com/components/ember.git",
   "_target": "canary",
-  "_originalSource": "ember",
-  "_direct": true
+  "_originalSource": "components/ember"
 }
