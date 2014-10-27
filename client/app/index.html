@@ -7,19 +7,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/training/classroom/assets/vendor.css">
-    <link rel="stylesheet" href="/training/classroom/assets/classroom.css">
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    {{content-for 'head'}}
+
+    <link rel="stylesheet" href="/assets/vendor.css">
+    <link rel="stylesheet" href="/assets/classroom.css">
   </head>
   <body>
-    <script>
-      window.ClassroomENV = {{ENV}};
-      window.EmberENV = window.ClassroomENV.EmberENV;
-    </script>
-    <script src="/training/classroom/assets/vendor.js"></script>
-    <script src="/training/classroom/assets/classroom.js"></script>
-    <script>
-      window.Classroom = require('classroom/app')['default'].create(ClassroomENV.APP);
-    </script>
+    {{content-for 'body'}}
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/classroom.js"></script>
   </body>
 </html>
