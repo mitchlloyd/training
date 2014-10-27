@@ -13,6 +13,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
+* `brew install npm`
+* `npm install -g bower`
 * `git clone <repository-url>` this repository
 * change into the new directory
 * `npm install`
