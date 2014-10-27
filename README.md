@@ -18,6 +18,11 @@ Check out the README under the client directory for more information on running 
 
 ### Tests
 
+There's no config/database.yml since this is an engine? So you can't do
+something like `rake db:create` or `rake db:test:prepare` from the top-level
+directory. Change directories into spec/dummy though and you can run those
+tasks to create your database, etc.
+
 ```sh
 rspec
 client test
@@ -32,8 +37,9 @@ In two separate shells run:
 ./bin/client
 ```
 
-(Those scripts just change into the spec/dummy directory and the client directory respectively and
-run command. You should familiarize yourself with those scripts to understand what they are doing.)
+(Those scripts just change into the spec/dummy directory and the client
+directory respectively and run command. You should familiarize yourself with
+those scripts to understand what they are doing.)
 
 
 After you start the server and client process you have 2 ways that you can
